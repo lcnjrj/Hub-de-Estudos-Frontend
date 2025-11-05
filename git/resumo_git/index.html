@@ -1,0 +1,250 @@
+<!-- Cole este código no bloco HTML Personalizado do WordPress -->
+
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; color: #1a1a1a; line-height: 1.5; font-size: 14px; margin: 20px 0; border-radius: 8px;">
+    <div style="max-width: 1200px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+
+        <header style="background: linear-gradient(135deg, #f64f59, #c471ed, #12c2e9); padding: 24px; text-align: center; color: white;">
+            <h2 style="font-size: 28px; margin: 0 0 8px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); font-weight: 700; color: white;">🚀 Git & GitHub</h2>
+            <p style="font-size: 14px; opacity: 0.95; margin: 0;">Guia Completo para Terminal & VS Code (LXQt)</p>
+        </header>
+
+        <section style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">🔑</span> 1. Configuração Inicial
+            </h3>
+            <div style="font-weight: 600; color: #444; margin-bottom: 8px; font-size: 14px;">Configurar usuário</div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #50fa7b;">git config --global user.name "Seu Nome"</span>
+<span style="color: #50fa7b;">git config --global user.email "seu@email.com"</span></pre>
+        </section>
+
+        <section style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">🔐</span> 2. Autenticação
+            </h3>
+            <div style="font-weight: 600; color: #444; margin-bottom: 8px; font-size: 14px;">Via SSH (Recomendado)</div>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ Gerar chave SSH</div>
+            </div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #50fa7b;">ssh-keygen -t ed25519 -C "seu@email.com"</span>
+<span style="color: #6272a4;"># Pressione Enter 3x</span></pre>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ Copiar chave pública</div>
+            </div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #50fa7b;">cat ~/.ssh/id_ed25519.pub</span>
+<span style="color: #6272a4;"># Copie toda a saída</span></pre>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ No GitHub: Settings → SSH and GPG keys → New SSH key</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Cole a chave e salve</div>
+            </div>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">Via Token (HTTPS)</div>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ GitHub: Settings → Developer settings → Personal access tokens</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Generate new token → Marque "repo"</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Copie o token e use como senha no git push</div>
+            </div>
+        </section>
+
+        <section style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">📤</span> 3. Primeiro Envio ao GitHub
+            </h3>
+            <div style="font-weight: 600; color: #444; margin-bottom: 8px; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">Terminal</span>
+            </div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #6272a4;"># Inicializar repositório</span>
+<span style="color: #50fa7b;">git init</span>
+<span style="color: #6272a4;"># Adicionar arquivos</span>
+<span style="color: #50fa7b;">git add .</span>
+<span style="color: #6272a4;"># Fazer commit</span>
+<span style="color: #50fa7b;">git commit -m "primeiro commit"</span>
+<span style="color: #6272a4;"># Conectar ao GitHub (SSH)</span>
+<span style="color: #50fa7b;">git remote add origin git@github.com:usuario/repo.git</span>
+<span style="color: #6272a4;"># OU via HTTPS</span>
+<span style="color: #50fa7b;">git remote add origin https://github.com/usuario/repo.git</span>
+<span style="color: #6272a4;"># Enviar para GitHub</span>
+<span style="color: #50fa7b;">git branch -M main</span>
+<span style="color: #50fa7b;">git push -u origin main</span></pre>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">VS Code</span>
+            </div>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ Abra a pasta do projeto</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Ctrl+Shift+G (Source Control)</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Clique em "Initialize Repository"</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Clique no "+" para stage all</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Digite mensagem e Commit</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ "..." → Remote → Add Remote</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Cole URL e Push</div>
+            </div>
+        </section>
+
+        <section style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">🔄</span> 4. Enviar Alterações
+            </h3>
+            <div style="font-weight: 600; color: #444; margin-bottom: 8px; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">Terminal</span>
+            </div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #6272a4;"># Ver o que mudou</span>
+<span style="color: #50fa7b;">git status</span>
+<span style="color: #6272a4;"># Adicionar alterações</span>
+<span style="color: #50fa7b;">git add .</span>
+<span style="color: #6272a4;"># Fazer commit</span>
+<span style="color: #50fa7b;">git commit -m "descrição"</span>
+<span style="color: #6272a4;"># Enviar</span>
+<span style="color: #50fa7b;">git push</span></pre>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">VS Code</span>
+            </div>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ Ctrl+Shift+G</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Clique "+" nos arquivos</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Digite mensagem e Commit</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Clique "Sync Changes"</div>
+            </div>
+        </section>
+
+        <section style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">📊</span> 5. Ver Status e Histórico
+            </h3>
+            <div style="font-weight: 600; color: #444; margin-bottom: 8px; font-size: 14px;">Status (mudanças locais)</div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #50fa7b;">git status</span></pre>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">Log (histórico)</div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #50fa7b;">git log --oneline</span>
+<span style="color: #50fa7b;">git log</span>
+<span style="color: #50fa7b;">git log -5</span>
+<span style="color: #50fa7b;">git log --graph --oneline --all</span></pre>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">VS Code</span>
+            </div>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ Status: Ctrl+Shift+G</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Log: "..." → View History</div>
+            </div>
+        </section>
+
+        <section style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">📥</span> 6. Baixar Repositório (Clone)
+            </h3>
+            <div style="font-weight: 600; color: #444; margin-bottom: 8px; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">Terminal</span>
+            </div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #6272a4;"># Via SSH</span>
+<span style="color: #50fa7b;">git clone git@github.com:usuario/repo.git</span>
+<span style="color: #6272a4;"># Via HTTPS</span>
+<span style="color: #50fa7b;">git clone https://github.com/usuario/repo.git</span></pre>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">VS Code</span>
+            </div>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ Ctrl+Shift+P → "Git: Clone"</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Cole URL do repositório</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Escolha pasta destino</div>
+            </div>
+        </section>
+
+        <section style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">⬇️</span> 7. Baixar Alterações do GitHub
+            </h3>
+            <div style="font-weight: 600; color: #444; margin-bottom: 8px; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">Terminal</span>
+            </div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #6272a4;"># Baixar e aplicar</span>
+<span style="color: #50fa7b;">git pull</span>
+<span style="color: #6272a4;"># OU em 2 passos</span>
+<span style="color: #50fa7b;">git fetch</span>
+<span style="color: #50fa7b;">git merge origin/main</span></pre>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">VS Code</span>
+            </div>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ Ctrl+Shift+G</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ "..." → Pull</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Ou clique no ícone ↻</div>
+            </div>
+        </section>
+
+        <section style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">⚠️</span> 8. Resolver Conflitos
+            </h3>
+            <div style="font-weight: 600; color: #444; margin-bottom: 8px; font-size: 14px;">Como acontecem?</div>
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin: 8px 0; font-size: 12px; border-radius: 4px;">
+                Conflitos ocorrem quando você e outra pessoa editam a mesma parte do mesmo arquivo.
+            </div>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">Terminal</span>
+            </div>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #50fa7b;">git pull</span>
+<span style="color: #6272a4;"># Se houver conflito:</span>
+<span style="color: #50fa7b;">git status</span>
+<span style="color: #6272a4;"># Edite arquivos, remova marcações</span>
+<span style="color: #50fa7b;">git add arquivo.js</span>
+<span style="color: #50fa7b;">git commit -m "resolvido conflito"</span>
+<span style="color: #50fa7b;">git push</span></pre>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">
+                <span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">VS Code</span>
+            </div>
+            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                <div style="margin: 6px 0; font-size: 13px;">→ VS Code detecta conflitos</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Arquivos com "!" são conflitos</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Abra e escolha: Current/Incoming/Both</div>
+                <div style="margin: 6px 0; font-size: 13px;">→ Stage, Commit e Push</div>
+            </div>
+
+            <div style="font-weight: 600; color: #444; margin: 16px 0 8px 0; font-size: 14px;">Dicas</div>
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin: 8px 0; font-size: 12px; border-radius: 4px;">
+                ✓ Sempre faça <strong>git pull</strong> antes de trabalhar<br>
+                ✓ Commits pequenos e frequentes<br>
+                ✓ Comunique-se com a equipe
+            </div>
+        </section>
+
+        <section style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">💡</span> 9. Comandos Úteis
+            </h3>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #6272a4;"># Desfazer último commit</span>
+<span style="color: #50fa7b;">git reset --soft HEAD~1</span>
+<span style="color: #6272a4;"># Descartar mudanças locais</span>
+<span style="color: #50fa7b;">git checkout -- arquivo.js</span>
+<span style="color: #6272a4;"># Ver diferenças</span>
+<span style="color: #50fa7b;">git diff</span>
+<span style="color: #6272a4;"># Ver branches</span>
+<span style="color: #50fa7b;">git branch</span>
+<span style="color: #6272a4;"># Criar nova branch</span>
+<span style="color: #50fa7b;">git checkout -b nova-branch</span>
+<span style="color: #6272a4;"># Ver URL do remote</span>
+<span style="color: #50fa7b;">git remote -v</span></pre>
+        </section>
+
+        <section style="padding: 20px;">
+            <h3 style="font-size: 16px; font-weight: bold; color: #667eea; margin: 0 0 12px 0;">
+                <span style="font-size: 18px;">🎯</span> 10. Fluxo de Trabalho Típico
+            </h3>
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #4ec9b0;">$</span> git pull
+<span style="color: #4ec9b0;">$</span> <span style="color: #6272a4;"># ... fazer alterações ...</span>
+<span style="color: #4ec9b0;">$</span> git status
+<span style="color: #4ec9b0;">$</span> git add .
+<span style="color: #4ec9b0;">$</span> git commit -m "mensagem"
+<span style="color: #4ec9b0;">$</span> git push</pre>
+
+            <div style="background: #f8d7da; border-left: 4px solid #dc3545; padding: 10px; margin: 8px 0; font-size: 12px; border-radius: 4px;">
+                <strong>⚡ Lembre-se:</strong> Sempre faça <strong>pull</strong> antes de <strong>push</strong> para evitar conflitos!
+            </div>
+        </section>
+
+    </div>
+</div>
