@@ -1,0 +1,158 @@
+/*==================================
+  1. CSS Reset / Normalize
+==================================*/
+/*
+  Define um modelo de caixa mais intuitivo e zera margens/padding padrão
+  dos navegadores para evitar inconsistências.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total do elemento */
+}
+
+html {
+    /* Define o tamanho base da fonte (útil para unidades 'rem') */
+    font-size: 100%;
+}
+
+/* Zera margens e paddings padrões */
+body, h1, h2, h3, p, ul, ol, figure, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove estilos de lista padrão (bolinhas) */
+ul, ol {
+    list-style: none;
+}
+
+/* Garante que imagens e mídia se ajustem aos containers */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+
+/*==================================
+  2. Variáveis Globais (Cores, Fontes)
+==================================*/
+:root {
+    /* Cores */
+    --primary-color: #f64f59;       /* Cor principal (ex: o vermelho do seu gradiente) */
+    --secondary-color: #12c2e9;     /* Cor secundária (ex: o azul do seu gradiente) */
+    --background-light: #ffffff;    /* Fundo claro */
+    --text-dark: #333333;           /* Texto escuro padrão */
+
+    /* Tipografia */
+    --font-family-primary: 'Arial', sans-serif;
+    --font-size-base: 1rem; /* 16px */
+
+    /* Espaçamento */
+    --space-small: 8px;
+    --space-medium: 16px;
+    --space-large: 32px;
+}
+
+
+/*==================================
+  3. Estilos Base (Body, Tipografia)
+==================================*/
+body {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    font-family: var(--font-family-primary);
+    line-height: 1.6; /* Melhora a legibilidade do texto */
+    padding: 20px; /* Um pequeno respiro nas laterais */
+}
+
+/* Estilo para links */
+a {
+    color: var(--primary-color);
+    text-decoration: none; /* Remove sublinhado padrão */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo de cabeçalhos */
+h1, h2, h3 {
+    line-height: 1.2;
+    margin-bottom: var(--space-medium);
+}
+
+
+/*==================================
+  4. Componentes Reutilizáveis
+==================================*/
+
+/* Container centralizado para a maioria do conteúdo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-medium);
+}
+
+/* Exemplo de Card (seu componente de destaque) */
+.card {
+    background-color: white;
+    padding: var(--space-large);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--space-large);
+}
+
+/* Exemplo de Botão Principal */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #c0404a; /* Uma versão um pouco mais escura da cor primária */
+}
+
+
+/*==================================
+  5. Layout Específico (Header, Footer, etc.)
+==================================*/
+
+header {
+    padding: var(--space-medium) 0;
+    border-bottom: 1px solid #eee;
+}
+
+footer {
+    padding: var(--space-large) 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: var(--space-large);
+}
+
+
+/*==================================
+  6. Responsividade (Media Queries)
+==================================*/
+
+/* Estilos aplicados apenas em telas menores que 768px (ex: celulares) */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    .card {
+        padding: var(--space-medium);
+    }
+}
