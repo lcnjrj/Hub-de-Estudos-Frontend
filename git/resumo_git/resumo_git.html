@@ -298,9 +298,36 @@ Writing objects: 100% (9/9), 1.32 KiB | 674.00 KiB/s, done.
 Total 9 (delta 5), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (5/5), completed with 4 local objects.
 To github.com:xxx/xxxxxguit .git
-   e8f777f..5dedd65  main -> main
+   exx77f..xxxxx  main -> main
 </pre>
 
+ <pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; margin: 8px 0; overflow-x: auto;"><span style="color: #4ec9b0;">$</span>  git push origin main
+To github.com:xx/xx.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'xx/xx.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+<span style="color: #4ec9b0;">$</span>git fetch origin
+<span style="color: #04f724;">$</span> git pull origin main
+From github.com:xx/xx
+ * branch            main       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories 
+<span style="color: #4ec9b0;">$</span>git pull --rebase origin main
+From github.com:xx/xx
+ * branch            main       -> FETCH_HEAD
+Successfully rebased and updated refs/heads/main. 
+<span style="color: #4ec9b0;">$</span>  git push origin main
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 5.45 KiB | 1.82 MiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+To xx/xx.git
+ main -> main
+</pre>
 
             <div style="background: #f8d7da; border-left: 4px solid #dc3545; padding: 10px; margin: 8px 0; font-size: 12px; border-radius: 4px;">
                 <strong>⚡ Lembre-se:</strong> Sempre faça <strong>pull</strong> antes de <strong>push</strong> para evitar conflitos!
