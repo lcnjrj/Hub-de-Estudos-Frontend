@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resumo Dart 01</title>
+
+  <!-- Estilo centralizado (mantendo a paleta de cores original) -->
+  <style>
+    :root {
+      /* Paleta original (não alterada) */
+      --grad-header: linear-gradient(135deg, #f64f59, #c471ed, #12c2e9);
+      --grad-page: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --brand-primary: #667eea;
+      --text-dark: #1a1a1a;
+      --text-light: #ffffff;
+
+      /* Espaçamento e layout */
+      --radius-lg: 16px;
+      --radius-md: 8px;
+      --space-xxl: 24px;
+      --space-xl: 20px;
+      --space-lg: 16px;
+      --space-md: 12px;
+      --space-sm: 8px;
+
+      /* Tipografia */
+      --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-size-base: 15px;
+      --line-base: 1.65;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--grad-page);
+      color: var(--text-dark);
+      font-family: var(--font-ui);
+      font-size: var(--font-size-base);
+      line-height: var(--line-base);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Header hero */
+    header.hero {
+      background: var(--grad-header);
+      color: var(--text-light);
+      padding: var(--space-xxl);
+      text-align: center;
+    }
+    header.hero h2 {
+      margin: 0 0 var(--space-sm) 0;
+      font-size: 28px;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    header.hero p {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.95;
+    }
+
+    /* Container card */
+    .page {
+      padding: var(--space-xl);
+    }
+    .card {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    /* Seções */
+    section {
+      padding: var(--space-xl);
+      border-bottom: 1px solid #e0e0e0;
+    }
+    section:last-child {
+      border-bottom: none;
+    }
+    h3.section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 var(--space-lg) 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--brand-primary);
+    }
+    .section-title .icon {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* Tipografia base */
+    p {
+      margin: 0 0 var(--space-md) 0;
+    }
+    ul, ol {
+      margin: 0 0 var(--space-lg) 0;
+      padding-left: 20px;
+    }
+    li {
+      margin: 6px 0;
+    }
+    .lead {
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+    }
+
+    /* Blocos suaves */
+    .soft-block {
+      background: #f8f9fa;
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      margin: var(--space-sm) 0;
+    }
+    .note {
+      font-size: 13px;
+      margin: 6px 0;
+    }
+
+    /* Código e preformatado */
+    pre, code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 14px;
+      background: #f6f8fa;
+      border-radius: var(--radius-md);
+    }
+    code {
+      padding: 2px 6px;
+    }
+    pre {
+      padding: var(--space-md);
+      margin: var(--space-sm) 0 var(--space-lg);
+      overflow: auto;
+      border: 1px solid #e6e6e6;
+    }
+
+    /* Tabelas ascii e resumos visuais */
+    .ascii {
+      background: #f6f8fa;
+      border: 1px solid #e6e6e6;
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      white-space: pre-wrap;
+      margin: var(--space-md) 0 var(--space-lg);
+    }
+
+    /* Rodapé de links */
+    footer.links {
+      padding: var(--space-xl);
+      text-align: left;
+      background: #ffffff;
+    }
+    footer.links h4 {
+      margin: 0 0 var(--space-md) 0;
+      color: var(--brand-primary);
+      font-size: 16px;
+    }
+    footer.links a {
+      color: #0a66c2; /* link padrão, não altera paleta principal */
+      text-decoration: none;
+    }
+    footer.links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Barra de retorno */
+    .back-bar {
+      background: var(--grad-header);
+      padding: var(--space-xxl);
+      text-align: center;
+      color: var(--text-light);
+    }
+    .back-bar a {
+      color: var(--text-light);
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Separadores e respiro visual */
+    .divider {
+      height: 1px;
+      background: #e0e0e0;
+      margin: var(--space-lg) 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h2>🚀 DART</h2>
+    <p>RESUMO DART 01</p>
+  </header>
+
+<main class="page">
+    <div class="card">
+
+      <section>
+        <h3 class="section-title"><span class="icon">🔑</span>1. Início</h3>
+
+        <p class="lead">🔄 Padrões Fundamentais do Dart</p>
+        <ul>
+          <li><strong>Padrão 1:</strong> Null Safety First</li>
+          <li><strong>Padrão 2:</strong> Tudo é Objeto</li>
+          <li><strong>Padrão 3:</strong> Sintaxe Expressiva (cascade, spread, collection if/for)</li>
+          <li><strong>Padrão 4:</strong> Performance + Produtividade (AOT e JIT)</li>
+        </ul>
+
+        <pre><code>// Null safety básico
+String? nullable = null;      // Pode ser nulo
+String nonNull = 'valor';     // Nunca nulo
+</code></pre>
+
+        <div class="divider"></div>
+
+        <p class="lead">🎯 O que são variáveis?</p>
+        <p>Variáveis são como caixas etiquetadas onde você guarda informações. A etiqueta é o nome da variável, e o conteúdo é o valor.</p>
+        <pre><code>// Você está criando uma caixa chamada "idade" que guarda o número 25
+var idade = 25;
+</code></pre>
+
+        <p class="lead">📦 Tipos de dados fundamentais</p>
+
+        <p><strong>1. int (Números inteiros)</strong></p>
+        <pre><code>int idade = 30;
+int temperatura = -5;
+int pontos = 0;
+int populacaoMundial = 8000000000;
+
+// Operações comuns
+int soma = 10 + 5;            // 15
+int subtracao = 10 - 3;       // 7
+int multiplicacao = 4 * 5;    // 20
+int divisaoInteira = 10 ~/ 3; // 3 (divisão inteira)
+int resto = 10 % 3;           // 1 (resto da divisão)
+</code></pre>
+        <p>Analogia: int é como contar maçãs — você não pode ter 2.5 maçãs, apenas 2 ou 3.</p>
+        <pre><code>int numero = -42;
+
+print(numero.abs());        // 42
+print(numero.isNegative);   // true
+print(numero.isEven);       // true
+print(numero.isOdd);        // false
+print(10.compareTo(5));     // 1
+</code></pre>
+
+        <p><strong>2. double (Números decimais)</strong></p>
+        <pre><code>double preco = 19.99;
+double pi = 3.14159;
+double temperatura = -2.5;
+double zero = 0.0;
+
+// Operações comuns
+double divisao = 10 / 3;     // 3.3333333333...
+double potencia = 2.0 * 2.0; // 4.0
+</code></pre>
+        <p>Analogia: double é como medir líquidos — você pode ter 1.5 litros de água.</p>
+        <pre><code>double preco = 19.99;
+
+print(preco.round());           // 20
+print(preco.floor());           // 19
+print(preco.ceil());            // 20
+print(preco.toInt());           // 19
+print(preco.toStringAsFixed(1)); // "20.0"
+</code></pre>
+
+        <p><strong>3. String (Texto)</strong></p>
+        <pre><code>String nome = 'João';
+String sobrenome = "Silva";
+String frase = 'Olá, mundo!';
+String vazio = '';
+
+String poema = '''
+Rosas são vermelhas
+Violetas são azuis
+Dart é incrível
+E você também!
+''';
+</code></pre>
+        <p>Interpolação de strings:</p>
+        <pre><code>String nome = 'Maria';
+int idade = 28;
+
+print('Olá, $nome!');
+print('$nome tem $idade anos');
+print('Ano que vem terá ${idade + 1} anos');
+</code></pre>
+        <pre><code>String texto = 'Dart é Incrível';
+
+print(texto.length);
+print(texto.toUpperCase());
+print(texto.toLowerCase());
+print(texto.contains('Dart'));
+print(texto.startsWith('Dart'));
+print(texto.endsWith('vel'));
+print(texto.replaceAll('Dart', 'Flutter'));
+print(texto.split(' '));
+print(texto.substring(0, 4));
+print(texto.trim());
+</code></pre>
+        <pre><code>String primeiro = 'Dart';
+String segundo = 'Lang';
+
+String completo = primeiro + ' ' + segundo;   // +
+String completo2 = '$primeiro $segundo';      // Interpolação
+String completo3 = 'Dart' ' ' 'Lang';         // Adjacentes
+</code></pre>
+
+        <p><strong>4. bool (Booleano)</strong></p>
+        <pre><code>bool estaChovendo = true;
+bool estaSol = false;
+bool maiorDeIdade = true;
+
+// Lógicos
+bool temGuardaChuva = true;
+bool podeSair = temGuardaChuva && estaChovendo;
+bool ficarEmCasa = !temGuardaChuva || estaChovendo;
+bool naoEstaChovendo = !estaChovendo;
+
+// Comparações
+int a = 10, b = 5;
+print(a == b);
+print(a != b);
+print(a > b);
+print(a < b);
+print(a >= 10);
+print(a <= 5);
+</code></pre>
+
+        <div class="divider"></div>
+
+        <p class="lead">🎨 Declaração de variáveis</p>
+        <p><strong>Tipagem explícita (recomendada)</strong></p>
+        <pre><code>int idade = 25;
+double preco = 99.99;
+String nome = 'Ana';
+bool ativo = true;
+</code></pre>
+        <p><strong>Inferência com var</strong></p>
+        <pre><code>var idade = 25;        // int
+var preco = 99.99;     // double
+var nome = 'Ana';      // String
+var ativo = true;      // bool
+
+var numero = 10;       // int
+// numero = 'texto';   // ERRO!
+</code></pre>
+        <p><strong>Tipo dinâmico (dynamic)</strong></p>
+        <pre><code>dynamic qualquerCoisa = 10;
+qualquerCoisa = 'texto';
+qualquerCoisa = true;
+qualquerCoisa = 3.14;
+// ⚠️ Perde a segurança de tipos
+</code></pre>
+
+        <div class="divider"></div>
+
+        <p class="lead">🔒 Constantes vs variáveis</p>
+        <pre><code>var nome = 'João';
+nome = 'Maria'; // ok
+
+final dataAtual = DateTime.now();
+// dataAtual = DateTime.now(); // ERRO
+
+const pi = 3.14159;
+const appName = 'Meu App';
+// pi = 3.14; // ERRO
+
+final horaExecucao = DateTime.now();
+// const horaCompilacao = DateTime.now(); // ERRO
+</code></pre>
+
+        <div class="divider"></div>
+
+        <p class="lead">🎯 Null safety (Dart 3.0+)</p>
+        <pre><code>int idade = 25;
+// idade = null; // ERRO
+
+int? idadePossivelmenteNula = null;
+idadePossivelmenteNula = 30;
+
+String? nomeOpcional;
+print(nomeOpcional?.length); // null
+
+String? nome = 'Dart';
+print(nome!.length); // 4
+
+String? nomeUsuario;
+String exibir = nomeUsuario ?? 'Anônimo';
+print(exibir);
+</code></pre>
+
+        <div class="divider"></div>
+
+        <p class="lead">🧪 Exercícios práticos</p>
+        <div class="soft-block">
+          <div class="note">Exercício 1: Crie variáveis para armazenar dados de uma pessoa</div>
+          <pre><code>void main() {
+  String nome = 'Carlos';
+  int idade = 35;
+  double altura = 1.75;
+  bool ehEstudante = false;
+
+  print('Nome: $nome');
+  print('Idade: $idade anos');
+  print('Altura: ${altura}m');
+  print('É estudante? $ehEstudante');
+}
+</code></pre>
+        </div>
+
+        <div class="soft-block">
+          <div class="note">Exercício 2: Calculadora simples</div>
+          <pre><code>void main() {
+  int a = 10;
+  int b = 3;
+
+  print('Soma: ${a + b}');
+  print('Subtração: ${a - b}');
+  print('Multiplicação: ${a * b}');
+  print('Divisão: ${a / b}');
+  print('Divisão inteira: ${a ~/ b}');
+  print('Resto: ${a % b}');
+}
+</code></pre>
+          <pre><code>void main() {
+  String frase = '  Dart é Poderoso  ';
+
+  print('Original: "$frase"');
+  print('Maiúscula: ${frase.toUpperCase()}');
+  print('Minúscula: ${frase.toLowerCase()}');
+  print('Sem espaços: "${frase.trim()}"');
+  print('Tamanho: ${frase.length}');
+  print('Contém "Dart"? ${frase.contains("Dart")}');
+}
+</code></pre>
+        </div>
+
+        <div class="soft-block">
+          <div class="note">Exercício 3: Manipulação de strings</div>
+          <div class="ascii">TIPOS PRIMITIVOS DO DART:
+┌─────────────────────────────────────┐
+│ int      → Números inteiros         │
+│ double   → Números decimais         │
+│ String   → Textos                   │
+│ bool     → true/false               │
+└─────────────────────────────────────┘
+
+DECLARAÇÃO:
+tipo nome = valor;
+  ↓    ↓      ↓
+ int idade = 25;</div>
+        </div>
+
+        <p class="lead">Mini exemplos</p>
+        <div class="soft-block">
+          <pre><code>void main() {
+  int dia = 3;
+  String nomeDia;
+
+  switch (dia) {
+    case 1:
+      nomeDia = "Domingo";
+      break;
+    case 2:
+      nomeDia = "Segunda-feira";
+      break;
+    case 3:
+      nomeDia = "Terça-feira";
+      break;
+    case 4:
+      nomeDia = "Quarta-feira";
+      break;
+    case 5:
+      nomeDia = "Quinta-feira";
+      break;
+    case 6:
+      nomeDia = "Sexta-feira";
+      break;
+    case 7:
+      nomeDia = "Sábado";
+      break;
+    default:
+      nomeDia = "Dia inválido";
+  }
+
+  print("Dia $dia da semana é: $nomeDia");
+}
+</code></pre>
+        </div>
+      </section>
+
+      <footer class="links">
+        <h4>Sites de referência</h4>
+        <ul>
+          <li><a href="https://cursos.alura.com.br/">Imersão Digital Santander Alura Mobile Nivelamento</a></li>
+          <li><a href="https://www.alura.com.br/imersao-dev-google?srsltid=AfmBOopo8DPie34JNSFWN5ZstKKkwPMYHbAUUuufC8WM04hM8Mqsxu01">Imersão DEV Alura Gemini</a></li>
+          <li><a href="https://rogerdudler.github.io/git-guide/index.pt_BR.html">https://rogerdudler.github.io/git-guide/index.pt_BR.html</a></li>
+          <li><a href="https://www.freecodecamp.org/portuguese/news/aprenda-o-basico-de-git-em-menos-de-10-minutos/">https://www.freecodecamp.org/portuguese/news/aprenda-o-basico-de-git-em-menos-de-10-minutos/</a></li>
+          <li><a href="https://nicepage.com/pt/modelos-html">Mais de 10.000 modelos HTML gratuitos</a></li>
+
+        </ul>
+      </footer>
+
+    </div>
+  </main>
+
+  <div class="back-bar">
+    <a href="/Hub-de-Estudos-Frontend/index.html">Voltar Para Página Índice</a>
+  </div>
+
+</body>
+</html>
+s
