@@ -1,7 +1,3 @@
-Estudo e exercícios durante os cursos Programa Santander Imersão Digital Alura E ADA TECH+ Front End !
-#Alura
-#AdaTechGirls
-
 # 📚 Hub de Estudos Frontend - Base de Conhecimento Pessoal
 
 > Coleção curada de conceitos de desenvolvimento frontend, anotações e referências rápidas organizadas para aprendizado eficiente
@@ -21,7 +17,8 @@ Este repositório serve como uma **base de conhecimento estruturada** documentan
 
 ### 🌐 Site ao Vivo
 **[Acessar o Hub de Conhecimento →](https://lcnjrj.github.io/testes-front-end-2025-2026/)**
-**em construção**
+
+---
 
 ## 📖 O Que Há Aqui
 
@@ -45,11 +42,24 @@ Este repositório serve como uma **base de conhecimento estruturada** documentan
 - Programação assíncrona (Promises, async/await)
 - Manipulação de eventos
 
+#### ⚛️ **React**
+- Arquitetura de componentes
+- Fundamentos de gerenciamento de estado
+- Fundamentos de Hooks
+- Ciclo de vida de componentes
+
 #### 🎯 **Dart**
 - Fundamentos da linguagem
 - Conceitos de POO
 - Padrões básicos de sintaxe
 
+#### 🔧 **Git & GitHub**
+- Workflows de controle de versão
+- Estratégias de branching
+- Melhores práticas de colaboração
+- Fundamentos de GitHub Actions
+
+---
 
 ## 🗂️ Estrutura do Repositório
 
@@ -73,6 +83,8 @@ testes-front-end-2025-2026/
 └── recursos_legaizinhos/
     └── recursos_legaizinhos.html # Recursos e ferramentas curados
 ```
+
+---
 
 ## 💡 Como Usar Este Repositório
 
@@ -219,7 +231,6 @@ Estou em transição de **administração de sistemas Linux** e **shell scriptin
 - Completar fundamentos React
 - Aprofundar padrões assíncronos JavaScript
 - Explorar TypeScript
-
 - Mudar foco primário para Python, Docker e ferramentas DevOps
 
 ---
@@ -244,8 +255,9 @@ Sou uma **desenvolvedora autodidata** com background em montagem de hardware e a
 
 ### Conecte-se Comigo
 - 💼 **GitHub:** [@lcnjrj](https://github.com/lcnjrj)
+- 🔗 **LinkedIn:** [Seu LinkedIn]
 - 🌐 **Portfolio:** [lcnjrj.github.io/portfolio_2025](https://lcnjrj.github.io/portfolio_2025/)
-
+- 📧 **Email:** lu.faria.dev@gmail.com
 
 ---
 
@@ -253,18 +265,27 @@ Sou uma **desenvolvedora autodidata** com background em montagem de hardware e a
 
 ### Agradecimentos Especiais
 - **Equipe do Bootcamp Frontend** - Pela oportunidade de bolsa
-- **Alura & ADA Tech & Santander** - Por trilhas de aprendizado estruturadas
+- **Alura & DIO** - Por trilhas de aprendizado estruturadas
 - **MDN Web Docs** - A referência web definitiva
 - **Comunidade Dev** - Por incontáveis tutoriais e ajuda
 
-## 🔄 Histórico de Versões
-
-- **v1.0** (out 2025) - Estrutura inicial com fundamentos HTML, CSS, JavaScript
-- **v1.1** (nov 2025) - Adicionada seção React e guia de referência Git
+### Filosofia de Aprendizado
+> *"Documente o que você aprende. Ensinar solidifica conhecimento, e suas anotações se tornam recursos para outros no mesmo caminho."*
 
 ---
 
-⭐ **Se esta base de conhecimento foi útil, por favor dê uma estrela!**
-📖 **Tem sugestões de melhoria? Abra uma issue!**
+## 🔄 Histórico de Versões
+
+- **v1.0** (Dez 2024) - Estrutura inicial com fundamentos HTML, CSS, JavaScript
+- **v1.1** (Jan 2025) - Adicionada seção React e guia de referência Git
+- **v1.2** (Atual) - Expandidas anotações Dart, adicionada seção de recursos
+
+---
+
+⭐ **Se esta base de conhecimento foi útil, por favor dê uma estrela!**  
+📖 **Tem sugestões de melhoria? Abra uma issue!**  
 🤝 **Quer colaborar? Faça fork e contribua!**
 
+---
+
+*Última atualização: Dezembro 2024 | Construído com 💙 e muito ☕ | Deploy no GitHub Pages*

@@ -45,6 +45,12 @@ Este repositório serve como uma **base de conhecimento estruturada** documentan
 - Programação assíncrona (Promises, async/await)
 - Manipulação de eventos
 
+#### ⚛️ **React**
+- Arquitetura de componentes
+- Fundamentos de gerenciamento de estado
+- Fundamentos de Hooks
+- Ciclo de vida de componentes
+
 #### 🎯 **Dart**
 - Fundamentos da linguagem
 - Conceitos de POO
