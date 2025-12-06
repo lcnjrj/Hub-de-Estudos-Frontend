@@ -353,10 +353,10 @@ dartvoid main() {
   print('Divisão inteira: ${a ~/ b}');
   print('Resto: ${a % b}');
 }
-
-void main() {
+Exercício 3: Manipulação de strings
+dartvoid main() {
   String frase = '  Dart é Poderoso  ';
-  
+
   print('Original: "$frase"');
   print('Maiúscula: ${frase.toUpperCase()}');
   print('Minúscula: ${frase.toLowerCase()}');
@@ -365,10 +365,8 @@ void main() {
   print('Contém "Dart"? ${frase.contains("Dart")}');
 }
 ```
- <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin: 8px 0;">
 
-                <div style="margin: 6px 0; font-size: 13px;">
-Exercício 3: Manipulação de strings
+---
 
 ## 📊 Resumo Visual
 ```
@@ -384,8 +382,7 @@ DECLARAÇÃO:
 tipo nome = valor;
   ↓    ↓      ↓
  int idade = 25;
-</div>
-<br>
+
 <br>Mini Exemplos:
 <br>
 
@@ -425,7 +422,19 @@ tipo nome = valor;
 <br>  print("Dia $dia da semana é: $nomeDia");
 <br>}
 </div>
-</div>
+
+
+
+            </div>
+
+Semana 2-3: Estruturas Essenciais
+
+Loops: for, while, do-while, for-in
+Coleções: List, Set, Map
+Funções: declaração, parâmetros, retorno
+Arrow functions e funções anônimas
+Null safety: ?, !, late, ??
+Padrão identificado: Dart prioriza segurança em tempo de compilação
 
 
 
